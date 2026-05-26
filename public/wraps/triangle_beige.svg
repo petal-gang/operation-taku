@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 340" fill="none">
+  <defs>
+    <linearGradient id="paper" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0e6d8"/>
+      <stop offset="50%" stop-color="#e8d9c8"/>
+      <stop offset="100%" stop-color="#ddd0be"/>
+    </linearGradient>
+    <linearGradient id="kraftCollar" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f5ebe0"/>
+      <stop offset="100%" stop-color="#e0d0c0"/>
+    </linearGradient>
+  </defs>
+  <path d="M28 78 Q120 42 212 78 L168 318 L72 318 Z" fill="url(#paper)" stroke="#c4b5a0" stroke-width="2"/>
+  <ellipse cx="120" cy="72" rx="92" ry="22" fill="url(#kraftCollar)" stroke="#d4c4b0" stroke-width="1.5"/>
+  <path d="M32 74 Q120 58 208 74" stroke="#f8f0e8" stroke-width="2" opacity="0.7"/>
+  <ellipse cx="120" cy="238" rx="22" ry="10" fill="#d4c4b0" opacity="0.35"/>
+  <path d="M98 228 Q120 218 142 228 Q120 248 98 228 Z" fill="#c4a882" stroke="#b09870" stroke-width="1.5"/>
+</svg>

@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Flower Bouquet Builder
 
-## Getting Started
+A Next.js app to pick up to five flowers, write a note, and view a layered digital bouquet with gift-card download.
 
-First, run the development server:
+## Stack
+
+- Next.js 16 (App Router) + TypeScript
+- Tailwind CSS v4
+- Zustand with `sessionStorage` persist (`bouquet-builder-v1`)
+- Framer Motion, `html-to-image`
+- Fonts: Cormorant Garamond (headings), Dancing Script (note card)
+
+## Routes
+
+| Route | Description |
+|-------|-------------|
+| `/` | Landing — floating petals, random compliment, optional ambient music |
+| `/builder` | Flower grid (max 5), wrap picker, note form |
+| `/bouquet` | Gift card, bouquet, share link, PNG download |
+
+## Development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Bouquet assets (PNGTree + SVG decorations)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Phase 2.5 uses **dual assets** per flower:
 
-## Learn More
+| Use | Path |
+|-----|------|
+| Builder preview (stem picks) | `public/flowers/stems/{id}.png` |
+| Bouquet gift card (blooms in wrap) | `public/flowers/newflowers/*` |
+| Legacy bloom density (unused on card) | `public/flowers/blooms/{id}.png` |
+| Triangular paper wrap | `public/wraps/triangle_{pink,beige,blush,sage}.png` |
+| Gift-card corners/sides | `public/flowers/{id}.svg` |
+| Bouquet greenery | `public/greenery/pngtree/{id}.png` |
 
-To learn more about Next.js, take a look at the following resources:
+### Replace with licensed PNGTree downloads
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Sign in at [PNGTree](https://pngtree.com/) and download transparent PNGs ([flower stems](https://pngtree.com/so/flower-stem), [leaves](https://pngtree.com/so/leaf)).
+2. Save stems as `public/flowers/stems/{id}.png` (same IDs as `src/data/flowers.ts`).
+3. Save leaves as `public/greenery/pngtree/{id}.png` (same IDs as `src/data/greenery.ts`).
+4. Update `src/data/pngtreeAttribution.ts` with asset URLs if needed.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Until then, run `npm run generate:assets` to rebuild stem, bloom, leaf, and triangular-wrap PNGs from project SVGs.
 
-## Deploy on Vercel
+### Corner decorations (Noun Project / line art)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Keep SVGs in `public/flowers/` for card corners. Update `src/data/attributions.ts` when swapping to Noun Project icons.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deploy (Vercel)
+
+1. Push this repo to GitHub.
+2. Import at [vercel.com/new](https://vercel.com/new) — preset **Next.js**.
+3. No env vars required.
+
+```bash
+npm run build
+```
+
+## Attribution
+
+- Corner flower SVGs: Noun Project (see footer + `src/data/attributions.ts`)
+- Bouquet PNG stems/leaves: [PNGTree](https://pngtree.com/) — see `src/data/pngtreeAttribution.ts` and [license terms](https://pngtree.com/legal/terms)

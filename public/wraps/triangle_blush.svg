@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 340" fill="none">
+  <defs>
+    <linearGradient id="creamPaper" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff8f5"/>
+      <stop offset="50%" stop-color="#fce8ef"/>
+      <stop offset="100%" stop-color="#f5d0dc"/>
+    </linearGradient>
+    <linearGradient id="creamCollar" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fffef8"/>
+      <stop offset="100%" stop-color="#f8e0e8"/>
+    </linearGradient>
+  </defs>
+  <path d="M28 78 Q120 42 212 78 L168 318 L72 318 Z" fill="url(#creamPaper)" stroke="#e8c0d0" stroke-width="2"/>
+  <ellipse cx="120" cy="72" rx="92" ry="22" fill="url(#creamCollar)" stroke="#f0d0dc" stroke-width="1.5"/>
+  <path d="M98 228 Q120 218 142 228 Q120 248 98 228 Z" fill="#f8bbd9" stroke="#e8a0b8" stroke-width="1.5"/>
+  <circle cx="108" cy="226" r="5" fill="#fce4ec"/>
+  <circle cx="132" cy="226" r="5" fill="#fce4ec"/>
+</svg>
