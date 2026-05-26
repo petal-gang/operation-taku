@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 320" fill="none">
+  <defs>
+    <linearGradient id="blushPaper" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff8f0"/>
+      <stop offset="50%" stop-color="#fce8e0"/>
+      <stop offset="100%" stop-color="#f5d0c8"/>
+    </linearGradient>
+    <linearGradient id="blushCollar" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fffef8"/>
+      <stop offset="100%" stop-color="#f5e0d8"/>
+    </linearGradient>
+  </defs>
+  <path d="M20 55 Q120 25 220 55 L218 285 Q120 305 22 285 Z" fill="url(#blushPaper)" stroke="#e0c8c0" stroke-width="2"/>
+  <path d="M15 48 Q30 38 45 42 Q60 46 75 40 Q90 34 105 38 Q120 42 135 36 Q150 30 165 36 Q180 42 195 38 Q210 34 225 48 Q120 58 15 48 Z" fill="url(#blushCollar)" stroke="#e8d0c8" stroke-width="1.5"/>
+  <path d="M18 52 Q60 62 120 58 Q180 54 222 52" stroke="#fffef8" stroke-width="2" opacity="0.8"/>
+</svg>

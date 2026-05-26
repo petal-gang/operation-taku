@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 340" fill="none">
+  <defs>
+    <linearGradient id="sagePaper" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e8f0e8"/>
+      <stop offset="50%" stop-color="#d4e4d4"/>
+      <stop offset="100%" stop-color="#b8d0b8"/>
+    </linearGradient>
+    <linearGradient id="sageCollar" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f0f8f0"/>
+      <stop offset="100%" stop-color="#c8dcc8"/>
+    </linearGradient>
+  </defs>
+  <path d="M28 78 Q120 42 212 78 L168 318 L72 318 Z" fill="url(#sagePaper)" stroke="#98b898" stroke-width="2"/>
+  <ellipse cx="120" cy="72" rx="92" ry="22" fill="url(#sageCollar)" stroke="#a8c0a8" stroke-width="1.5"/>
+  <path d="M98 228 Q120 218 142 228 Q120 248 98 228 Z" fill="#8ab08a" stroke="#6a9870" stroke-width="1.5"/>
+</svg>
