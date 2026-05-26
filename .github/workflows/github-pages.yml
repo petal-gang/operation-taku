@@ -1,11 +1,10 @@
-# Deploy static Next.js export to GitHub Pages (gh-pages branch).
+# Deploy to GitHub Pages (official Actions flow).
 #
-# ONE-TIME SETUP (required or deploy will not show a site):
-#   Repo → Settings → Pages → Build and deployment
-#   Source: "Deploy from a branch"
-#   Branch: gh-pages   Folder: / (root)
+# REQUIRED ONE-TIME (fixes 404):
+#   https://github.com/petal-gang/operation-taku/settings/pages
+#   → Build and deployment → Source: "GitHub Actions" → Save
 #
-# Live URL: https://petal-gang.github.io/operation-taku/
+# URL: https://petal-gang.github.io/operation-taku/
 
 name: GitHub Pages
 
@@ -15,45 +14,50 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
 
 concurrency:
-  group: github-pages-${{ github.repository }}
-  cancel-in-progress: true
+  group: pages-${{ github.repository }}
+  cancel-in-progress: false
 
 env:
   NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
 
-      - name: Install dependencies
-        run: npm ci
+      - run: npm ci
 
       - name: Build static export
         run: npm run build
 
-      - name: Ensure .nojekyll
-        run: touch out/.nojekyll
+      - run: touch out/.nojekyll
 
-      - name: Verify build output
+      - name: Verify export
         run: npm run verify:pages
 
-      - name: Deploy to gh-pages branch
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./out
-          publish_branch: gh-pages
-          enable_jekyll: false
-          commit_message: "deploy: ${{ github.sha }}"
+          path: ./out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

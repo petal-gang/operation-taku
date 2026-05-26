@@ -32,12 +32,12 @@ Open [http://localhost:3000](http://localhost:3000).
 
 Workflow: [`.github/workflows/github-pages.yml`](.github/workflows/github-pages.yml) — runs on every push to `main`.
 
-### One-time setup (required)
+### One-time setup (required — fixes 404)
 
 1. Open **https://github.com/petal-gang/operation-taku/settings/pages**
-2. **Build and deployment** → Source: **Deploy from a branch** (not “GitHub Actions”)
-3. **Branch:** `gh-pages` · **Folder:** `/ (root)` · Save
-4. **Actions** → **GitHub Pages** → **Run workflow** (first run creates `gh-pages`)
+2. **Build and deployment** → Source: **GitHub Actions** → **Save**
+3. **Actions** → **GitHub Pages** → **Run workflow**
+4. See [docs/GITHUB_PAGES_SETUP.md](docs/GITHUB_PAGES_SETUP.md) if it still 404s
 
 ### Live URL
 
