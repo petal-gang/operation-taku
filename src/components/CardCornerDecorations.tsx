@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { getFlowerById } from "@/data/flowers";
+import { assetPath } from "@/lib/assetPath";
 
 type SlotId =
   | "topLeft"
@@ -143,7 +144,7 @@ export function CardCornerDecorations({
             }}
           >
             <Image
-              src={flower.decorationImage}
+              src={assetPath(flower.decorationImage)}
               alt=""
               width={size}
               height={size}

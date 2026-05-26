@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { wraps } from "@/data/wraps";
+import { assetPath } from "@/lib/assetPath";
 
 type WrapSelectorProps = {
   selectedId: string;
@@ -33,7 +34,7 @@ export function WrapSelector({ selectedId, onSelect }: WrapSelectorProps) {
               aria-pressed={selected}
             >
               <Image
-                src={wrap.image}
+                src={assetPath(wrap.image)}
                 alt=""
                 width={64}
                 height={84}

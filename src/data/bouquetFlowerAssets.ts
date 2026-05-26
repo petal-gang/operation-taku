@@ -1,3 +1,5 @@
+import { assetPath } from "@/lib/assetPath";
+
 /** Bouquet gift-card blooms — separate from builder stem PNGs in flowers.ts */
 export const bouquetVariantsByFlowerId: Record<string, string[]> = {
   rose_red: ["/flowers/newflowers/redrose.png"],
@@ -26,7 +28,7 @@ export function getBouquetVariantSrc(
 ): string {
   const variants = bouquetVariantsByFlowerId[flowerId];
   if (!variants?.length) {
-    return bouquetVariantsByFlowerId.rose_red![0]!;
+    return assetPath(bouquetVariantsByFlowerId.rose_red![0]!);
   }
-  return variants[variantIndex % variants.length]!;
+  return assetPath(variants[variantIndex % variants.length]!);
 }

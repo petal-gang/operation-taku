@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import type { Flower } from "@/data/flowers";
+import { assetPath } from "@/lib/assetPath";
 
 type FlowerCardProps = {
   flower: Flower;
@@ -44,7 +45,7 @@ export function FlowerCard({
         }
       >
         <Image
-          src={flower.image}
+          src={assetPath(flower.image)}
           alt=""
           width={64}
           height={96}
