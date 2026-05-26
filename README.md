@@ -1,22 +1,23 @@
-# Flower Bouquet Builder
+# Operation Taku
 
-A Next.js app to pick up to five flowers, write a note, and view a layered digital bouquet with gift-card download.
+A friend-themed flower card builder — pick flowers, write a note, scatter 100 blooms on a card, download or share.
+
+**Live site:** https://petal-gang.github.io/operation-taku/
 
 ## Stack
 
 - Next.js 16 (App Router) + TypeScript
 - Tailwind CSS v4
-- Zustand with `sessionStorage` persist (`bouquet-builder-v1`)
+- Zustand (`sessionStorage`)
 - Framer Motion, `html-to-image`
-- Fonts: Cormorant Garamond (headings), Dancing Script (note card)
 
 ## Routes
 
 | Route | Description |
 |-------|-------------|
-| `/` | Landing — floating petals, random compliment, optional ambient music |
-| `/builder` | Flower grid (max 5), wrap picker, note form |
-| `/bouquet` | Gift card, bouquet, share link, PNG download |
+| `/` | Landing |
+| `/builder` | Pick flowers + note |
+| `/bouquet` | Card preview, share link, PNG download |
 
 ## Development
 
@@ -27,43 +28,19 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-## Bouquet assets (PNGTree + SVG decorations)
+## Deploy (GitHub Pages)
 
-Phase 2.5 uses **dual assets** per flower:
+Pushes to `main` run `.github/workflows/deploy-github-pages.yml`.
 
-| Use | Path |
-|-----|------|
-| Builder preview (stem picks) | `public/flowers/stems/{id}.png` |
-| Bouquet gift card (blooms in wrap) | `public/flowers/newflowers/*` |
-| Legacy bloom density (unused on card) | `public/flowers/blooms/{id}.png` |
-| Triangular paper wrap | `public/wraps/triangle_{pink,beige,blush,sage}.png` |
-| Gift-card corners/sides | `public/flowers/{id}.svg` |
-| Bouquet greenery | `public/greenery/pngtree/{id}.png` |
+1. **Settings → Pages** → Source: **Deploy from a branch** → **gh-pages** → **/ (root)**
+2. Site URL: `https://petal-gang.github.io/operation-taku/`
 
-### Replace with licensed PNGTree downloads
-
-1. Sign in at [PNGTree](https://pngtree.com/) and download transparent PNGs ([flower stems](https://pngtree.com/so/flower-stem), [leaves](https://pngtree.com/so/leaf)).
-2. Save stems as `public/flowers/stems/{id}.png` (same IDs as `src/data/flowers.ts`).
-3. Save leaves as `public/greenery/pngtree/{id}.png` (same IDs as `src/data/greenery.ts`).
-4. Update `src/data/pngtreeAttribution.ts` with asset URLs if needed.
-
-Until then, run `npm run generate:assets` to rebuild stem, bloom, leaf, and triangular-wrap PNGs from project SVGs.
-
-### Corner decorations (Noun Project / line art)
-
-Keep SVGs in `public/flowers/` for card corners. Update `src/data/attributions.ts` when swapping to Noun Project icons.
-
-## Deploy (Vercel)
-
-1. Push this repo to GitHub.
-2. Import at [vercel.com/new](https://vercel.com/new) — preset **Next.js**.
-3. No env vars required.
+Local Pages build test:
 
 ```bash
-npm run build
+npm run build:pages
 ```
 
 ## Attribution
 
-- Corner flower SVGs: Noun Project (see footer + `src/data/attributions.ts`)
-- Bouquet PNG stems/leaves: [PNGTree](https://pngtree.com/) — see `src/data/pngtreeAttribution.ts` and [license terms](https://pngtree.com/legal/terms)
+See footer on the app and `src/data/attributions.ts`, `src/data/pngtreeAttribution.ts`.
