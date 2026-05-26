@@ -63,8 +63,13 @@ export function decodeBouquetFromSearchParams(
   return { flowers, note };
 }
 
+export function getAppBasePath(): string {
+  return process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+}
+
 export function buildShareUrl(payload: BouquetSharePayload): string {
-  if (typeof window === "undefined") return "/bouquet";
+  const base = getAppBasePath();
+  if (typeof window === "undefined") return `${base}/bouquet`;
   const qs = encodeBouquetToSearchParams(payload);
-  return `${window.location.origin}/bouquet?${qs}`;
+  return `${window.location.origin}${base}/bouquet?${qs}`;
 }

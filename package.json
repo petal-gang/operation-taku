@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:pages": "NEXT_PUBLIC_BASE_PATH=/friend-flower-card next build",
     "start": "next start",
     "lint": "eslint",
     "generate:assets": "node scripts/generatePngAssets.mjs"
