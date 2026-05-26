@@ -9,7 +9,6 @@ import { CopyShareLinkButton } from "@/components/CopyShareLinkButton";
 import { DownloadCardButton } from "@/components/DownloadCardButton";
 import { GiftCardFrame } from "@/components/GiftCardFrame";
 import { NoteCard } from "@/components/NoteCard";
-import { NounProjectAttribution } from "@/components/NounProjectAttribution";
 import { decodeBouquetFromSearchParams } from "@/lib/bouquetShare";
 import { useBouquetStore } from "@/store/bouquetStore";
 
@@ -110,7 +109,6 @@ function BouquetPageContent() {
           </div>
         </div>
       </main>
-      <NounProjectAttribution />
     </div>
   );
 }

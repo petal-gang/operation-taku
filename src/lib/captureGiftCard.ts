@@ -1,4 +1,5 @@
 import { toPng } from "html-to-image";
+import { isMobileBrowser } from "@/lib/downloadGiftCard";
 
 /** Measure export root after layout is stable. */
 export function measureGiftCard(node: HTMLElement) {
@@ -9,13 +10,18 @@ export function measureGiftCard(node: HTMLElement) {
   };
 }
 
+function getExportScale(): number {
+  if (typeof window === "undefined") return 2;
+  return isMobileBrowser() ? 1.25 : 2;
+}
+
 /**
  * Capture #bouquet-gift-card without Retina / width-height cropping bugs.
  * See html-to-image issues #72, #553 — avoid pixelRatio>1 with manual width/height.
  */
 export async function captureGiftCardPng(node: HTMLElement): Promise<string> {
   const { width, height } = measureGiftCard(node);
-  const exportScale = 2;
+  const exportScale = getExportScale();
 
   return toPng(node, {
     cacheBust: true,
@@ -25,6 +31,7 @@ export async function captureGiftCardPng(node: HTMLElement): Promise<string> {
     height,
     canvasWidth: width * exportScale,
     canvasHeight: height * exportScale,
+    skipFonts: false,
     style: {
       width: `${width}px`,
       height: `${height}px`,

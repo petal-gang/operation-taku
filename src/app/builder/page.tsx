@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { FlowerCard } from "@/components/FlowerCard";
 import { NoteForm } from "@/components/NoteForm";
-import { NounProjectAttribution } from "@/components/NounProjectAttribution";
 import { SelectionCounter } from "@/components/SelectionCounter";
 import { flowers } from "@/data/flowers";
 import { encodeBouquetToSearchParams } from "@/lib/bouquetShare";
@@ -90,7 +89,6 @@ export default function BuilderPage() {
           ) : null}
         </div>
       </main>
-      <NounProjectAttribution />
     </div>
   );
 }
