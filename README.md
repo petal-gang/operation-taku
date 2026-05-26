@@ -30,15 +30,24 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Deploy (GitHub Pages)
 
-Pushes to `main` run `.github/workflows/deploy-github-pages.yml`.
+Workflow: [`.github/workflows/github-pages.yml`](.github/workflows/github-pages.yml) — runs on every push to `main`.
 
-1. **Settings → Pages** → Source: **Deploy from a branch** → **gh-pages** → **/ (root)**
-2. Site URL: `https://petal-gang.github.io/operation-taku/`
+### One-time setup (required)
 
-Local Pages build test:
+1. Open **https://github.com/petal-gang/operation-taku/settings/pages**
+2. **Build and deployment** → Source: **Deploy from a branch** (not “GitHub Actions”)
+3. **Branch:** `gh-pages` · **Folder:** `/ (root)` · Save
+4. **Actions** → **GitHub Pages** → **Run workflow** (first run creates `gh-pages`)
+
+### Live URL
+
+**https://petal-gang.github.io/operation-taku/**
+
+### Test locally before pushing
 
 ```bash
 npm run build:pages
+npm run verify:pages
 ```
 
 ## Attribution

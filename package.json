@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "build:pages": "NEXT_PUBLIC_BASE_PATH=/operation-taku next build",
+    "verify:pages": "node scripts/verify-pages-export.mjs",
     "start": "next start",
     "lint": "eslint",
     "generate:assets": "node scripts/generatePngAssets.mjs"
