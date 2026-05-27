@@ -80,7 +80,7 @@ function BouquetPageContent() {
             <div className="absolute inset-0 z-0 overflow-hidden">
               <BouquetCanvas selectedIds={selectedIds} priority animate />
             </div>
-            <div className="relative z-50 flex flex-1 items-center justify-center px-3 py-6">
+            <div className="relative z-50 flex flex-1 flex-col justify-end px-3 pt-4 pb-[12%] sm:pb-[14%]">
               <NoteCard variant="card" />
             </div>
           </div>
